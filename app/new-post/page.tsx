@@ -1,23 +1,32 @@
-// storePost({
-//   imageUrl: "",
-//   title,
-//   content,
-//   userId: 1,
-// });
+ 'use client'
+import { createPost } from "../actions";
+import FormSubmit from "@/components/form-submit";
+import { useFormState } from "react-dom";
+
+
+
+
+
 
 export default function NewPostPage() {
-  // server action to create new post
-
+  const [state, craetePostActoin]   = useFormState(createPost,{
+    content:'',
+    title:''
+  })
+  
   return (
     <>
       <h1>Create a new post</h1>
-      <form>
+      <form action={craetePostActoin}>
+   
         <p className="form-control">
+          <p>{state?.title && state.title}</p>
           <label htmlFor="title">Title</label>
           <input type="text" id="title" name="title" />
         </p>
         <p className="form-control">
-          <label htmlFor="image">Image URL</label>
+          {state.content && state.content}
+          <label htmlFor="image">Image</label>
           <input
             type="file"
             accept="image/png, image/jpeg"
@@ -30,8 +39,7 @@ export default function NewPostPage() {
           <textarea id="content" name="content" />
         </p>
         <p className="form-actions">
-          <button type="reset">Reset</button>
-          <button>Create Post</button>
+          <FormSubmit />
         </p>
       </form>
     </>

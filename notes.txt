@@ -1,0 +1,6 @@
+file upload 
+
+we cannot store the images in our projct filse 
+if we store the images in public folder it will be accessable only during the development
+
+we must store images in something like aws s3 or cloudinary

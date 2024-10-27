@@ -8,6 +8,9 @@ async function LatestPosts() {
   return <Posts posts={latestPosts} />;
 }
 
+
+
+
 export default async function Home() {
   return (
     <>
